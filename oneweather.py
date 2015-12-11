@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+#
+#  oneweather.py
+#  
+#  Copyright 2015 pocmon <pocmon@sina.com> MIT License
+#
 
 import json
 import urllib.request
