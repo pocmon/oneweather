@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  oneweather.py
+#  oneweather.py v1.03
 #  
 #  Copyright 2015 pocmon <pocmon@sina.com> MIT License
 #
