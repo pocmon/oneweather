@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  oneweather.py v1.03
-#  
+#  oneweather.py v1.03 不可保存查询城市名称，不带配置文件版本
+#
 #  Copyright 2015 pocmon <pocmon@sina.com> MIT License
 #
 
@@ -40,10 +40,10 @@ def winfo(city):  # 显示天气信息
         wendu = myj["data"]["wendu"]
         weather = myj["data"]["ganmao"]
 
-        print("实时天气：")
+        print("\033[5;33;0m" + "实时天气：" + "\033[0m")
         print("\t" + (wendu + "℃ ").ljust(5) + weather + "\n")
 
-        print("今日天气：")
+        print("\033[5;33;0m" + "今日天气：" + "\033[0m")
         high = myj["data"]["forecast"][0]["high"]  # 最高温度
         fengxiang = myj["data"]["forecast"][0]["fengxiang"]  # 风向
         fengli = myj["data"]["forecast"][0]["fengli"]  # 风力
@@ -52,7 +52,7 @@ def winfo(city):  # 显示天气信息
         date = myj["data"]["forecast"][0]["date"]  # 日期
         print("\t" + date + "\t" + type + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
 
-        print("\n未来四天预报：")
+        print("\033[5;33;0m" + "\n未来四天预报：" + "\033[0m")
         for wday in range(1, 5):
             high = myj["data"]["forecast"][wday]["high"]  # 最高温度
             fengxiang = myj["data"]["forecast"][wday]["fengxiang"]  # 风向
@@ -60,9 +60,9 @@ def winfo(city):  # 显示天气信息
             type = myj["data"]["forecast"][wday]["type"]  # 天气类型
             low = myj["data"]["forecast"][wday]["low"]  # 最低温度
             date = myj["data"]["forecast"][wday]["date"]  # 日期
-            print("\t" + date + "\t" + type + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
+            print("\t" + date + type.center(10) + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
 
-        print("\n昨日天气：")
+        print("\033[5;33;0m" + "\n昨日天气：" + "\033[0m")
         high = myj["data"]["yesterday"]["high"]  # 最高温度
         fengxiang = myj["data"]["yesterday"]["fx"]  # 风向
         fengli = myj["data"]["yesterday"]["fl"]  # 风力
