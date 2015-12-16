@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  oneweather.py v1.03 不可保存查询城市名称，不带配置文件版本
+#--------------------------------------------------------
+#  Name:        oneweather.py
+#  Created:     15-12-16 pocmon
+#  Edition:     Python3.4, pychrom
+#  License:     MIT <http://opensource.org/licenses/MIT>
+#  Copyright:   (c) pocmon <pocmon@sina.com>
+#--------------------------------------------------------
+#  **Note: ...
+#  **Warning: ...
+#--------------------------------------------------------
 #
-#  Copyright 2015 pocmon <pocmon@sina.com> MIT License
-#
+
 
 import json
 import urllib.request
@@ -75,29 +83,35 @@ def winfo(city):  # 显示天气信息
         print("要查询的城市未找到，请检查城市名称是否正确！本程序只支持中国城市名称！")
 
 
-if len(sys.argv) > 2:
-    print("\n请输入正确的命令：oneweather.py [中国城市名称]，目前本程序只支持一个城市的天气询查！")
-    print("如：oneweather.py 北京 , 不带城市名称，默认城市：" + city)
-else:
-    if len(sys.argv) == 1:
+def main():
+    if len(sys.argv) > 2:
+        print("\n请输入正确的命令：oneweathert.py [中国城市名称]，目前本程序只支持一个城市的天气询查！")
+        print("如：oneweathert.py 北京 , 不带城市名称，默认城市：" + city)
+    else:
+        if len(sys.argv) == 1:
 
-        print("\n可输入城市名参数：oneweather.py [中国城市名称/默认" + city + "],如：oneweather.py 北京")
-        winfo(city)
-
-    elif len(sys.argv) == 2:
-
-        # 判断参数是否为汉字，只支持汉字
-        for cs in range(0, len(sys.argv[1])):
-
-            if unicodedata.east_asian_width(sys.argv[1][cs]) != 'Na':
-                chz = True
-            else:
-                chz = False
-
-            phz = (chz and phz)
-
-        if not phz:
-            print("\n请检查城市名称是否正确，本程序只支持中国中文城市名称！")
-        else:
-            city = sys.argv[1]
+            print("\n可输入城市名参数：oneweathert.py [中国城市名称/默认" + city + "],如：oneweathert.py 北京")
             winfo(city)
+
+        elif len(sys.argv) == 2:
+
+            # 判断参数是否为汉字，只支持汉字
+            for cs in range(0, len(sys.argv[1])):
+
+                if unicodedata.east_asian_width(sys.argv[1][cs]) != 'Na':
+                    chz = True
+                else:
+                    chz = False
+
+                phz = (chz and phz)
+
+            if not phz:
+                print("\n请检查城市名称是否正确，本程序只支持中国中文城市名称！")
+            else:
+                city = sys.argv[1]
+                winfo(city)
+
+
+# start...
+if __name__ == '__main__':
+    main()
