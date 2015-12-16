@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  oneweather.py v1.13 带配置文件版本，可保存查询的城市名，做为下次的默认城市名
+#--------------------------------------------------------
+#  Name:        oneweather1.py
+#  Created:     15-12-16 pocmon
+#  Edition:     Python3.4, pychrom
+#  License:     MIT <http://opensource.org/licenses/MIT>
+#  Copyright:   (c) pocmon <pocmon@sina.com>
+#--------------------------------------------------------
+#  **Note:
+#  新功能：存储查询城市到配置文件，不带参数默认为从配置文件读取上
+#  次正确的查询城市。
+#  **Warning: ...
+#--------------------------------------------------------
 #
-#  Copyright 2015 pocmon <pocmon@sina.com> MIT License
-#
+
 
 import json
 import urllib.request
@@ -16,10 +26,8 @@ import unicodedata
 
 # 默认城市
 city = '深圳'
-
 # 配置文件HOME路径
 home = os.environ['HOME']
-
 # 判断汉字条件
 chz = True
 phz = True
@@ -132,18 +140,17 @@ def winfo(city):
     else:
         print("要查询的城市未找到，请检查城市名称是否正确！本程序只支持中国城市名称！")
 
-# start...
-if __name__ == '__main__':
 
+def main():
     # 参数超过2个，命令格式错误
     if len(sys.argv) > 2:
-        print("\n请输入正确的命令：oneweather.py [中国城市名称]，目前本程序只支持一个城市的天气询查！")
-        print("如：oneweather.py 北京 , 不带城市名称，默认上次城市")
+        print("\n请输入正确的命令：oneweathert.py [中国城市名称]，目前本程序只支持一个城市的天气询查！")
+        print("如：oneweathert.py 北京 , 不带城市名称，默认上次城市")
 
     # 没有参数就从配置文件读取上次查询的城市，如果没有配置文件，则使用程序默认城市：深圳
     elif len(sys.argv) == 1:
         city = read_conf()
-        print("\n可输入城市名参数：oneweather.py [中国城市名称],如：oneweather.py 北京 , 不带城市名称，默认上次城市")
+        print("\n可输入城市名参数：oneweathert.py [中国城市名称],如：oneweathert.py 北京 , 不带城市名称，默认上次城市")
         winfo(city)
 
     elif len(sys.argv) == 2:
@@ -155,3 +162,8 @@ if __name__ == '__main__':
         else:
             city = sys.argv[1]
             winfo(city)
+
+
+# start...
+if __name__ == '__main__':
+    main()
