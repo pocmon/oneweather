@@ -58,7 +58,7 @@ def winfo(city):  # 显示天气信息
         type = myj["data"]["forecast"][0]["type"]  # 天气类型
         low = myj["data"]["forecast"][0]["low"]  # 最低温度
         date = myj["data"]["forecast"][0]["date"]  # 日期
-        print("\t" + date + "\t" + type + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
+        print("\t" + date + type.center(10) + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
 
         print("\033[5;33;0m" + "\n未来四天预报：" + "\033[0m")
         for wday in range(1, 5):
