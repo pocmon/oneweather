@@ -116,7 +116,7 @@ def winfo(city):
         type = myj["data"]["forecast"][0]["type"]  # 天气类型
         low = myj["data"]["forecast"][0]["low"]  # 最低温度
         date = myj["data"]["forecast"][0]["date"]  # 日期
-        print("\t" + date + "\t" + type + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
+        print("\t" + date + type.center(10) + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
 
         print("\033[1;33;0m" + "\n未来四天预报：" + "\033[0m")
         for wday in range(1, 5):
@@ -135,7 +135,7 @@ def winfo(city):
         type = myj["data"]["yesterday"]["type"]  # 天气类型
         low = myj["data"]["yesterday"]["low"]  # 最低温度
         date = myj["data"]["yesterday"]["date"]  # 日期
-        print("\t" + date + "\t" + type + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
+        print("\t" + date + type.center(10) + "\t" + high.ljust(10) + low.ljust(10) + fengli + "\t" + fengxiang)
 
     else:
         print("要查询的城市未找到，请检查城市名称是否正确！本程序只支持中国城市名称！")
