@@ -84,6 +84,13 @@ def winfo(city):  # 显示天气信息
 
 
 def main():
+
+    # 默认城市
+    city = '深圳'
+    # 判断汉字条件
+    chz = True
+    phz = True
+
     if len(sys.argv) > 2:
         print("\n请输入正确的命令：oneweathert.py [中国城市名称]，目前本程序只支持一个城市的天气询查！")
         print("如：oneweathert.py 北京 , 不带城市名称，默认城市：" + city)
